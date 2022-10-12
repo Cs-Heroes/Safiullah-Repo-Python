@@ -79,3 +79,27 @@ product = Product(1, "pen")
 print("product: " + product.getName())
 product.setName("book")
 print("product: " + product.getName())
+
+
+# Abustruction concept
+
+print("\n\nAbustruction concept\n\n")
+
+from abc import ABC, abstractmethod
+
+
+class Book(ABC):
+    @abstractmethod
+    def bookTitle(self):
+        pass
+
+
+class History(Book):
+    def bookTitle(self):
+        print("book title is history")
+
+
+# instance
+
+history = History()
+history.bookTitle()
