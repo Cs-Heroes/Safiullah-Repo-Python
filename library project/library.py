@@ -61,10 +61,7 @@ class Books:
         removeBook=input("Enter name of book to remove: ")
         removeBook=removeBook+"\n"
         try:
-
-
             removeBookIndex=allBooks.index(removeBook)
-       
             allBooks.remove(removeBook)
             allBooks.pop(removeBookIndex)
             allBooks.pop(removeBookIndex)
@@ -74,6 +71,8 @@ class Books:
                 bookFile.write(i)
         except ValueError:
             print("we haven't such book\npleace try agian")
+    
+    def 
 
         
 
@@ -94,6 +93,10 @@ class Student:
         studentFile=open("students.txt",'r')
         allStudents=studentFile.readlines()
         d=0
+        print("\n\n========================")
+        print("+++ students details +++")
+        print("========================\n")
+
         for i in range(math.floor(len(allStudents)/4)):
             print("student id: "+allStudents[d])
             print("student name: "+allStudents[d+1])
@@ -106,39 +109,99 @@ class Student:
 
 
     def removestudent(self):
-        students=open("students.txt",'r')
+
+        studentFile=open("students.txt",'r')
+        allStudents=studentFile.readlines()
+        studentFile.close()
+        removeStudent=input("Enter name of Student to remove: ")
+        removeStudent=removeStudent+"\n"
+        try:
+
+
+            removeStudentIndex=allStudents.index(removeStudent)
+       
+            allStudents.remove(removeStudent)
+            allStudents.pop(removeStudentIndex-1)
+            allStudents.pop(removeStudentIndex)
+            allStudents.pop(removeStudentIndex)
+            studentsFile=open("students.txt",'w')
+            for i in allStudents:
+                studentsFile.write(i)
+        except ValueError:
+            print("we haven't student by this name\npleace try agian")
 
 
 
+
+
+# std=Student()
+# # std.addStudent()
+# std.allStudentsDetials()
+# std.removestudent()
         
-        
-
-
+# # book=Books()
+# # book.booksDetails()
 
 
 def library():
     book=Books()
+    student=Student()
+    print("============================")
+    print("++++will come to library++++")
+    print("============================")
     
-
-
+    
     while True:
-        print("\n\n\nWhat do you want:\n1. add book:\n2. Books details:\n3. Books list:\n4. Remove book: \n0. for exit")
-        select=int(input("select: "))
-        print("\n\n")
+        print("=======================")
+        print("+++Library Main Page+++")
+        print("=======================")
+        print("1. Books: ")
+        print("2. Students: ")
+        print("0. Exit")
+        chooice=int(input("Select:"))
+        if(chooice==1):
+             while True:
 
-        if select==1:
-            book.addBook()
-        elif select==2:
-            book.booksDetails()
-        elif select==3:
-            book.booksList()
-        elif select==4:
-            book.removeBook()
-            pass
-        else:
+                print("\n\n\nWhat do you want:\n1. add book:\n2. Books details:\n3. Books list:\n4. Remove book: \n0. for exit")
+                select=int(input("select: "))
+                print("\n\n")
+
+                if select==1:
+                    book.addBook()
+                elif select==2:
+                    book.booksDetails()
+                elif select==3:
+                    book.booksList()
+                elif select==4:
+                    book.removeBook()
+                else:
+                    break
+        elif chooice==2:
+            while True:
+                print("\n\n\nWhat do you want:\n1. add Student:\n2. Students details:\n4. Remove Students: \n0. for exit: ")
+                select=int(input("select: "))
+                print("\n\n")
+                if(select==1):
+                    student.addStudent()
+                elif select==2:
+                    student.allStudentsDetials
+                elif select==3:
+                    student.removestudent()
+                elif select==0:
+                    break
+
+
+
+
+        elif chooice==0:
             exit()
+
+
+
+   
 
  
 library()
+
 
 
